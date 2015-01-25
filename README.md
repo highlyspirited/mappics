@@ -2,8 +2,11 @@
 A C# WPF application creating an always on top overlay window, which shows the embedded gps position of an image that has been opened in irfan viewer.
 
 Has been designed to work with IrfanView image viewer http://www.irfanview.com/
-Uses code from http://hintdesk.com/c-get-all-files-being-accessed-by-a-process-in-64-bits/ to get all open file handles of an IrfanView proces.
+
+Uses code from http://hintdesk.com/c-get-all-files-being-accessed-by-a-process-in-64-bits/ to get all open file handles of an IrfanView process.
+
 Uses exif-utils from https://code.google.com/p/exif-utils/ to read out the GPS data of images.
+
 Uses Static Maps API from gmaps to get map pictures https://developers.google.com/maps/documentation/staticmaps/.
 
 Created with Microsoft Visual Studio 2012 Ultimate.
