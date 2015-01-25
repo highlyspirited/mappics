@@ -13,8 +13,11 @@ Created with Microsoft Visual Studio 2012 Ultimate.
 
 Usage after Compilation:
 1. Make sure the *.exe and the ExifUtils.dll are in the same directory
+
 2. Double click the *.exe
+
 3. Open up an image in IrfanView, that contains GPS information
+
 4. Close via click on cross on the upper right
 
 The controls will disappear if you used them once.
