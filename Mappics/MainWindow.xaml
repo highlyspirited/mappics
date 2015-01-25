@@ -1,0 +1,44 @@
+﻿<Window x:Name="window" x:Class="Mappics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="400" Width="525" Activated="Window_Activated" Deactivated="Window_Deactivated" WindowStyle="None" Loaded="window_Loaded"
+        IsHitTestVisible="True" ResizeMode="NoResize" MouseEnter="window_MouseEnter" MouseLeave="window_MouseLeave" AllowsTransparency="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.RowSpan="3" x:Name="mapImage" Source="/Resources/GPS_not_available_icon.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Rectangle Grid.Row="0" Grid.RowSpan="3" x:Name="overlayRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Black" Opacity="0.0"/>
+        <Grid Grid.Row="0" x:Name="toolGrid" Opacity="4.0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Width="30" Source="/Resources/DragAndMove_icon_small.png" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" />
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Width="25" Source="/Resources/minus_icon_small.png" MouseLeftButtonDown="ResizeMinus_MouseLeftButtonDown"/>
+                <Image Grid.Column="1" Width="30" Source="/Resources/resize_icon_small.png" />
+                <Image Grid.Column="2" Width="25" Source="/Resources/plus_icon_small.png" MouseLeftButtonDown="ResizePlus_MouseLeftButtonDown"/>
+            </Grid>
+            <Image Grid.Column="2" Width="30" Source="/Resources/close_icon_small.png" MouseLeftButtonDown="Close_Click"/>
+        </Grid>
+        <Label Grid.Row="1" Grid.RowSpan="2" Height="100" HorizontalAlignment="Stretch" x:Name="msgLabel" Foreground="White" FontSize="24"/>
+        <Grid Grid.Row="2" x:Name="zoomGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" HorizontalAlignment="Stretch" Height="100" Source="/Resources/zoom_out_medium.png" MouseLeftButtonDown="ZoomOut_MouseLeftButtonDown"/>
+            <Image Grid.Column="1" HorizontalAlignment="Stretch" Height="100" Source="/Resources/zoom_in_icon_medium.png"  MouseLeftButtonDown="ZoomIn_MouseLeftButtonDown"/>
+        </Grid>
+        <!--<WebBrowser Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="myBrowser"/>-->
+    </Grid>
+</Window>

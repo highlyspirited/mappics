@@ -1,0 +1,1018 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExifUtils</name>
+    </assembly>
+    <members>
+        <member name="T:ExifUtils.Exif.ExifProperty">
+            <summary>
+            Represents a single EXIF property.
+            </summary>
+            <remarks>
+            Should try to serialize as EXIF+RDF http://www.w3.org/2003/12/exif/
+            </remarks>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifProperty.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifProperty.#ctor(ExifUtils.Exif.ExifTag,System.Object)">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifProperty.#ctor(System.Drawing.Imaging.PropertyItem)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="property"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifProperty.FormatValue">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+            <remarks>
+            References:
+            http://www.media.mit.edu/pia/Research/deepview/exif.html
+            http://en.wikipedia.org/wiki/APEX_system
+            http://en.wikipedia.org/wiki/Exposure_value
+            </remarks>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifProperty.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifProperty.ID">
+            <summary>
+            Gets and sets the Property ID according to the Exif specification for DCF images.
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifProperty.Tag">
+            <summary>
+            Gets and sets the property name according to the Exif specification for DCF images.
+            </summary>
+            <remarks>
+            Note: If the ExifTag value specifies the ExifType then ExifProperty.Type is automatically set.
+            If the ExifTag does not specify the ExifType then ExifProperty.Type is left unchanged.
+            </remarks>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifProperty.Type">
+            <summary>
+            Gets and sets the EXIF data type.
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifProperty.Value">
+            <summary>
+            Gets and sets the EXIF value.
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifProperty.DisplayValue">
+            <summary>
+            Gets the formatted text representation of the value.
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifProperty.DisplayName">
+            <summary>
+            Gets the formatted text representation of the label.
+            </summary>
+        </member>
+        <member name="T:ExifUtils.Exif.ExifPropertyCollection">
+            <summary>
+            Collection of ExifProperty items
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.#ctor(System.Collections.Generic.IEnumerable{ExifUtils.Exif.ExifProperty})">
+            <summary>
+            Creates a ExifPropertyCollection from a collection of ExifProperties.
+            Also works as a copy constructor.
+            </summary>
+            <param name="properties"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.#ctor(System.Collections.Generic.IEnumerable{System.Drawing.Imaging.PropertyItem},ExifUtils.Exif.ExifTag[])">
+            <summary>
+            Creates a ExifPropertyCollection from a collection of PropertyItems.
+            </summary>
+            <param name="propertyItems"></param>
+            <param name="exifTags">filter of EXIF tags to include</param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.#ctor(System.Collections.Generic.IEnumerable{System.Drawing.Imaging.PropertyItem},System.Collections.Generic.ICollection{ExifUtils.Exif.ExifTag})">
+            <summary>
+            Creates a ExifPropertyCollection from a collection of PropertyItems only including explicitly named ExifTags.
+            </summary>
+            <param name="propertyItems"></param>
+            <param name="exifTags">filter of EXIF tags to include</param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.Remove(ExifUtils.Exif.ExifTag)">
+            <summary>
+            
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.Contains(ExifUtils.Exif.ExifTag)">
+            <summary>
+            
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.Add(ExifUtils.Exif.ExifProperty)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.Contains(ExifUtils.Exif.ExifProperty)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.CopyTo(ExifUtils.Exif.ExifProperty[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.Remove(ExifUtils.Exif.ExifProperty)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifPropertyCollection.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifPropertyCollection.Item(ExifUtils.Exif.ExifTag)">
+            <summary>
+            
+            </summary>
+            <param name="tagID"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifPropertyCollection.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+            <remarks>
+            Warning: inefficient, used only for serialization
+            </remarks>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifPropertyCollection.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifPropertyCollection.IsReadOnly">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ExifUtils.Exif.ExifTag">
+            <summary>
+            Defines EXIF Property Tag ID values.
+            </summary>
+            <remarks>
+            References:
+            http://it.jeita.or.jp/document/publica/standard/exif/english/jeida49e.htm
+            http://www.exif.org/Exif2-2.PDF
+            http://msdn.microsoft.com/en-us/library/ms534413(VS.85).aspx
+            http://msdn.microsoft.com/library/en-us/gdicpp/GDIPlus/GDIPlusreference/constants/imagepropertytagconstants/propertytagsinnumericalorder.asp
+            http://msdn.microsoft.com/library/en-us/gdicpp/GDIPlus/GDIPlusreference/constants/imagepropertytagconstants/propertyitemdescriptions.asp
+            http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html
+            http://search.cpan.org/src/EXIFTOOL/Image-ExifTool-6.36/html/TagNames/EXIF.html
+            </remarks>
+        </member>
+        <member name="T:ExifUtils.Exif.ExifType">
+            <summary>
+            Defines types for Exif Properties.
+            </summary>
+            <remarks>
+            http://msdn.microsoft.com/library/en-us/gdicpp/GDIPlus/GDIPlusreference/constants/imagepropertytagtypeconstants.asp
+            </remarks>
+        </member>
+        <member name="F:ExifUtils.Exif.ExifType.Unknown">
+            <summary>
+            Specifies that the type is either unknown or not defined.
+            </summary>
+        </member>
+        <member name="F:ExifUtils.Exif.ExifType.Byte">
+            <summary>
+            Specifies that the value data member is an array of bytes.
+            </summary>
+        </member>
+        <member name="F:ExifUtils.Exif.ExifType.Ascii">
+            <summary>
+            Specifies that the value data member is a null-terminated ASCII string.
+            </summary>
+            <remarks>If you set <see cref="P:ExifUtils.Exif.ExifProperty.Type">ExifProperty.Type</see> to <see cref="P:ExifUtils.Exif.ExifProperty.Type"/>, you should set the length data member to the length of the string including the NULL terminator. For example, the string HELLO would have a length of 6.</remarks>
+        </member>
+        <member name="F:ExifUtils.Exif.ExifType.UInt16">
+            <summary>
+            Specifies that the value data member is an array of signed short (16-bit) integers.
+            </summary>
+        </member>
+        <member name="F:ExifUtils.Exif.ExifType.UInt32">
+            <summary>
+            Specifies that the value data member is an array of unsigned long (32-bit) integers.
+            </summary>
+        </member>
+        <member name="F:ExifUtils.Exif.ExifType.URational">
+            <summary>
+            Specifies that the value data member is an array of pairs of unsigned long integers. Each pair represents a fraction; the first integer is the numerator and the second integer is the denominator.
+            </summary>
+        </member>
+        <member name="F:ExifUtils.Exif.ExifType.Raw">
+            <summary>
+            Specifies that the value data member is an array of bytes that can hold values of any data type.
+            </summary>
+        </member>
+        <member name="F:ExifUtils.Exif.ExifType.Int32">
+            <summary>
+            Specifies that the value data member is an array of signed long (32-bit) integers.
+            </summary>
+        </member>
+        <member name="F:ExifUtils.Exif.ExifType.Rational">
+            <summary>
+            Specifies that the value data member is an array of pairs of signed long integers. Each pair represents a fraction; the first integer is the numerator and the second integer is the denominator.
+            </summary>
+        </member>
+        <member name="T:ExifUtils.Exif.ExifDataTypeAttribute">
+            <summary>
+            Attribute which provides hints about EXIF data types
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifDataTypeAttribute.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifDataTypeAttribute.#ctor(System.Type)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="dataType"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifDataTypeAttribute.#ctor(ExifUtils.Exif.ExifType)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="exifType"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifDataTypeAttribute.#ctor(System.Type,ExifUtils.Exif.ExifType)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="type"></param>
+            <param name="exifType"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifDataTypeAttribute.GetDataType(System.Object)">
+            <summary>
+            Gets the data type which corresponds to the specified Type.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.ExifDataTypeAttribute.GetExifType(System.Object)">
+            <summary>
+            Gets the exif type which corresponds to the specified Type.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifDataTypeAttribute.DataType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ExifDataTypeAttribute.ExifType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ExifUtils.Exif.IO.ExifDecoder">
+            <summary>
+            Decodes the GDI+ representation of EXIF properties.
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifDecoder.FromPropertyItem(System.Drawing.Imaging.PropertyItem)">
+            <summary>
+            Converts a property item to an object or array of objects.
+            </summary>
+            <param name="propertyItem">the property item to convert</param>
+            <returns>the property value</returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifDecoder.ReadUInt16(System.Byte[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifDecoder.ReadInt32(System.Byte[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifDecoder.ReadUInt32(System.Byte[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ExifUtils.Exif.IO.ExifEncoder">
+            <summary>
+            Encodes the GDI+ representation of EXIF properties.
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifEncoder.WriteBytes(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifEncoder.WriteUInt16(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifEncoder.WriteInt32(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifEncoder.WriteUInt32(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifEncoder.WriteRational(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifEncoder.WriteURational(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ExifUtils.Exif.IO.ExifReader">
+            <summary>
+            Utility class for reading EXIF data 
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifReader.GetExifData(System.String,ExifUtils.Exif.ExifTag[])">
+            <summary>
+            Creates a ExifPropertyCollection from an image file path.
+            Minimally loads image only enough to get PropertyItems.
+            </summary>
+            <param name="imagePath"></param>
+            <param name="exifTags">filter of EXIF tags to include</param>
+            <returns>Collection of ExifProperty items</returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifReader.GetExifData(System.String,System.Collections.Generic.ICollection{ExifUtils.Exif.ExifTag})">
+            <summary>
+            Creates a ExifPropertyCollection from an image file path.
+            Minimally loads image only enough to get PropertyItems.
+            </summary>
+            <param name="imagePath"></param>
+            <param name="exifTags">collection of EXIF tags to include</param>
+            <returns>Collection of ExifProperty items</returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifReader.GetExifData(System.Drawing.Image,ExifUtils.Exif.ExifTag[])">
+            <summary>
+            Creates a ExifPropertyCollection from the PropertyItems of a Bitmap.
+            </summary>
+            <param name="image"></param>
+            <param name="exifTags">filter of EXIF tags to include</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifReader.GetExifData(System.Drawing.Image,System.Collections.Generic.ICollection{ExifUtils.Exif.ExifTag})">
+            <summary>
+            Creates a ExifPropertyCollection from the PropertyItems of a Bitmap.
+            </summary>
+            <param name="image"></param>
+            <param name="exifTags">filter of EXIF tags to include</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifReader.LoadImage(System.String,System.Drawing.Image@)">
+            <summary>
+            Minimally load image without verifying image data.
+            </summary>
+            <param name="imagePath"></param>
+            <param name="image">the loaded image object</param>
+            <returns>the stream object to dispose of when finished</returns>
+        </member>
+        <member name="T:ExifUtils.Exif.IO.ExifWriter">
+            <summary>
+            Utility class for writing EXIF data
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.AddExifData(System.String,System.String,ExifUtils.Exif.ExifPropertyCollection)">
+            <summary>
+            Adds a collection of EXIF properties to an image.
+            </summary>
+            <param name="inputPath">file path of original image</param>
+            <param name="outputPath">file path of modified image</param>
+            <param name="properties"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.AddExifData(System.String,System.String,ExifUtils.Exif.ExifProperty)">
+            <summary>
+            Adds an EXIF property to an image.
+            </summary>
+            <param name="inputPath">file path of original image</param>
+            <param name="outputPath">file path of modified image</param>
+            <param name="property"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.AddExifData(System.Drawing.Image,ExifUtils.Exif.ExifPropertyCollection)">
+            <summary>
+            Adds a collection of EXIF properties to an image.
+            </summary>
+            <param name="image"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.AddExifData(System.Drawing.Image,ExifUtils.Exif.ExifProperty)">
+            <summary>
+            Adds an EXIF property to an image.
+            </summary>
+            <param name="image"></param>
+            <param name="property"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.RemoveExifData(System.String,System.String,ExifUtils.Exif.ExifTag[])">
+            <summary>
+            Remvoes EXIF properties from an image.
+            </summary>
+            <param name="inputPath">file path of original image</param>
+            <param name="outputPath">file path of modified image</param>
+            <param name="exifTags">tags to remove</param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.RemoveExifData(System.String,System.String,System.Collections.Generic.IEnumerable{ExifUtils.Exif.ExifTag})">
+            <summary>
+            Remvoes EXIF properties from an image.
+            </summary>
+            <param name="inputPath">file path of original image</param>
+            <param name="outputPath">file path of modified image</param>
+            <param name="exifTags">tags to remove</param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.RemoveExifData(System.Drawing.Image,ExifUtils.Exif.ExifTag[])">
+            <summary>
+            Remvoes EXIF properties from an image.
+            </summary>
+            <param name="image"></param>
+            <param name="exifTags">tags to remove</param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.RemoveExifData(System.Drawing.Image,System.Collections.Generic.IEnumerable{ExifUtils.Exif.ExifTag})">
+            <summary>
+            Remvoes EXIF properties from an image.
+            </summary>
+            <param name="image"></param>
+            <param name="exifTags">tags to remove</param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.CloneExifData(System.Drawing.Image,System.Drawing.Image)">
+            <summary>
+            Copies EXIF data from one image to another
+            </summary>
+            <param name="source"></param>
+            <param name="dest"></param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.CloneExifData(System.Drawing.Image,System.Drawing.Image,System.Int32)">
+            <summary>
+            Copies EXIF data from one image to another
+            </summary>
+            <param name="source"></param>
+            <param name="dest"></param>
+            <param name="maxPropertyBytes">setting to filter properties</param>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.ExifWriter.CreatePropertyItem">
+            <summary>
+            Uses Reflection to instantiate a PropertyItem
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Exif.IO.IfdReader.DecodeIFD(System.Byte[],System.IO.FileStream)">
+            <summary>
+            
+            </summary>
+            <param name="bytes"></param>
+            <param name="fullFile"></param>
+            <returns></returns>
+            <remarks>
+            References:
+            http://www.ee.cooper.edu/courses/course_pages/past_courses/EE458/TIFF/
+            http://search.cpan.org/src/EXIFTOOL/Image-ExifTool-6.36/html/TagNames/Canon.html
+            http://www.burren.cx/david/canon.html
+            http://cpan.uwinnipeg.ca/htdocs/Image-ExifTool/Image/ExifTool/Canon.pm.html
+            </remarks>
+        </member>
+        <member name="T:ExifUtils.Exif.TagValues.ExifTagOrientation">
+            <summary>
+            Describes the operations which need to be performed to display the image.
+            Alternatively the orientation of the camera when the image was captured.
+            </summary>
+            <remarks>
+            All degrees are given as clockwise.
+            </remarks>
+        </member>
+        <member name="T:ExifUtils.Exif.ImageMetaData">
+            <summary>
+            A strongly-typed adapter for common EXIF properties
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Exif.ImageMetaData.#ctor(System.Drawing.Bitmap)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="image">image from which to populate properties</param>
+        </member>
+        <member name="M:ExifUtils.Exif.ImageMetaData.#ctor(ExifUtils.Exif.ExifPropertyCollection)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="properties">EXIF properties from which to populate</param>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.Aperture">
+            <summary>
+            Gets and sets the aperture
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.Artist">
+            <summary>
+            Gets and sets the artist
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ColorSpace">
+            <summary>
+            Gets and sets the color space
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.Copyright">
+            <summary>
+            Gets and sets the copyright
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.DateTaken">
+            <summary>
+            Gets and sets the date the photo was taken
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ExposureBias">
+            <summary>
+            Gets and sets the exposure bias
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ExposureMode">
+            <summary>
+            Gets and sets the exposure mode
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ExposureProgram">
+            <summary>
+            Gets and sets the exposure program
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.Flash">
+            <summary>
+            Gets and sets the flash
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.FocalLength">
+            <summary>
+            Gets and sets the focal length
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.GpsAltitude">
+            <summary>
+            Gets and sets the GPS altitude
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.GpsLatitude">
+            <summary>
+            Gets and sets the GPS latitude
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.GpsLongitude">
+            <summary>
+            Gets and sets the GPS longitude
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ImageDescription">
+            <summary>
+            Gets and sets the image description
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ImageHeight">
+            <summary>
+            Gets and sets the image height
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ImageTitle">
+            <summary>
+            Gets and sets the image title
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ImageWidth">
+            <summary>
+            Gets and sets the image width
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ISOSpeed">
+            <summary>
+            Gets and sets the ISO speed
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.MeteringMode">
+            <summary>
+            Gets and sets the metering mode
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.Make">
+            <summary>
+            Gets and sets the camera make
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.Model">
+            <summary>
+            Gets and sets the camera model
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.MSAuthor">
+            <summary>
+            Gets and sets the author
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.MSComments">
+            <summary>
+            Gets and sets comments
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.MSKeywords">
+            <summary>
+            Gets and sets keywords
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.MSSubject">
+            <summary>
+            Gets and sets the subject
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.MSTitle">
+            <summary>
+            Gets and sets the title
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.Orientation">
+            <summary>
+            Gets and sets the orientation
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.ShutterSpeed">
+            <summary>
+            Gets and sets the shutter speed in seconds
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Exif.ImageMetaData.WhiteBalance">
+            <summary>
+            Gets and sets the white balance
+            </summary>
+        </member>
+        <member name="M:ExifUtils.GpsCoordinate.ToString">
+            <summary>
+            Formats the GPS coordinate as an XMP GPSCoordinate string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.GpsCoordinate.ToString(System.String)">
+            <summary>
+            Formats the GPS coordinate as an XMP GPSCoordinate string
+            </summary>
+            <returns></returns>
+            <remarks>
+            Accepts "X", "x" for XMP style formatting, or "D", "d" for degree style formatting, or "N", "n" for numeric
+            </remarks>
+        </member>
+        <member name="T:ExifUtils.Rational`1">
+            <summary>
+            Represents a rational number
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Rational`1.#ctor(`0,`0)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="numerator">The numerator of the rational number.</param>
+            <param name="denominator">The denominator of the rational number.</param>
+            <remarks>reduces by default</remarks>
+        </member>
+        <member name="M:ExifUtils.Rational`1.#ctor(`0,`0,System.Boolean)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="numerator">The numerator of the rational number.</param>
+            <param name="denominator">The denominator of the rational number.</param>
+            <param name="reduce">determines if should reduce by greatest common divisor</param>
+        </member>
+        <member name="M:ExifUtils.Rational`1.Approximate(System.Decimal)">
+            <summary>
+            Approximate the decimal value accurate to a precision of 0.000001m
+            </summary>
+            <param name="value">decimal value to approximate</param>
+            <returns>an approximation of the value as a rational number</returns>
+            <remarks>
+            http://stackoverflow.com/questions/95727
+            </remarks>
+        </member>
+        <member name="M:ExifUtils.Rational`1.Approximate(System.Decimal,System.Decimal)">
+            <summary>
+            Approximate the decimal value accurate to a certain precision
+            </summary>
+            <param name="value">decimal value to approximate</param>
+            <param name="epsilon">maximum precision to converge</param>
+            <returns>an approximation of the value as a rational number</returns>
+            <remarks>
+            http://stackoverflow.com/questions/95727
+            </remarks>
+        </member>
+        <member name="M:ExifUtils.Rational`1.Parse(System.String)">
+            <summary>
+            Converts the string representation of a number to its <see cref="T:ExifUtils.Rational`1"/> equivalent.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.TryParse(System.String,ExifUtils.Rational{`0}@)">
+            <summary>
+            Converts the string representation of a number to its <see cref="T:ExifUtils.Rational`1"/> equivalent.
+            A return value indicates whether the conversion succeeded or failed.
+            </summary>
+            <param name="value"></param>
+            <param name="rational"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.Reduce">
+            <summary>
+            Finds the greatest common divisor and reduces the fraction by this amount.
+            </summary>
+            <returns>the reduced rational</returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.Reduce(`0@,`0@)">
+            <summary>
+            Finds the greatest common divisor and reduces the fraction by this amount.
+            </summary>
+            <returns>the reduced rational</returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.LCD(System.Decimal,System.Decimal)">
+            <summary>
+            Lowest Common Denominator
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.GCD(System.Decimal,System.Decimal)">
+            <summary>
+            Greatest Common Devisor
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.ToString(System.IFormatProvider)">
+            <summary>
+            
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.ToDecimal(System.IFormatProvider)">
+            <summary>
+            
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.ToDouble(System.IFormatProvider)">
+            <summary>
+            
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.ToSingle(System.IFormatProvider)">
+            <summary>
+            
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.CompareTo(System.Object)">
+            <summary>
+            Compares this instance to a specified System.Object.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.CompareTo(`0)">
+            <summary>
+            Compares this instance to another <typeparamref name="T"/> instance.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_UnaryNegation(ExifUtils.Rational{`0})">
+            <summary>
+            Negation
+            </summary>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_Addition(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Addition
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_Subtraction(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Subtraction
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_Multiply(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Multiplication
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_Division(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Division
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_LessThan(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Less than
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_LessThanOrEqual(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Less than or equal to
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_GreaterThan(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Greater than
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_GreaterThanOrEqual(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Greater than or equal to
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_Equality(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Equal to
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Rational`1.op_Inequality(ExifUtils.Rational{`0},ExifUtils.Rational{`0})">
+            <summary>
+            Not equal to
+            </summary>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ExifUtils.Rational`1.Numerator">
+            <summary>
+            Gets and sets the numerator of the rational number
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Rational`1.Denominator">
+            <summary>
+            Gets and sets the denominator of the rational number
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Rational`1.IsEmpty">
+            <summary>
+            Gets a value indicating if this is an empty instance
+            </summary>
+        </member>
+        <member name="P:ExifUtils.Rational`1.MaxValue">
+            <summary>
+            Gets the MaxValue
+            </summary>
+        </member>
+        <member name="T:ExifUtils.Utility">
+            <summary>
+            Internal Utility Class
+            </summary>
+        </member>
+        <member name="M:ExifUtils.Utility.IsFlagsEnum(System.Type)">
+            <summary>
+            Checks if an enum is able to be combined as bit flags.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Utility.GetFlagList(System.Type,System.Object)">
+            <summary>
+            Splits a bitwise-OR'd set of enums into a list.
+            </summary>
+            <param name="enumType">the enum type</param>
+            <param name="value">the combined value</param>
+            <returns>list of flag enums</returns>
+        </member>
+        <member name="M:ExifUtils.Utility.GetAttribute(System.Object,System.Type,System.Boolean)">
+            <summary>
+            Gets an attribute of an object
+            </summary>
+            <param name="value"></param>
+            <param name="attributeType"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Utility.GetDescription(System.Object)">
+            <summary>
+            Gets the value of the DescriptionAttribute for the object
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExifUtils.Utility.GetDescription(System.Enum)">
+            <summary>
+            Gets the value of the DescriptionAttribute for the enum
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
