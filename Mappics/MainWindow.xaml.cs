@@ -50,7 +50,7 @@ namespace Mappics
                 Dispatcher.Invoke(() => updateImage(forceUpdate));
                 return;
             }
-            if (!IrfanWatcher.updateNeeded() || forceUpdate)
+            if (!IrfanWatcher.updateNeeded() && !forceUpdate)
             {
                 return;
             }
